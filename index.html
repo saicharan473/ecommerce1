@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ecommerce</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: rgb(231, 233, 233);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .online-shopping-container {
+            margin-top: 0px;
+            padding-top: 0;
+            border-top: 0px;
+            max-width: 100%;
+            background-color: rgb(241, 241, 241);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgb(189, 189, 189);
+        }
+        
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: space-around;
+        }
+        
+        .product-card {
+            flex: 1 1 calc(25% - 20px);
+            /* max-width: 30%; */
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .cart-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around;
+        }
+        
+        .addtocart-card {
+            display: block;
+            flex: 1 1 calc(25% - 20px);
+            max-width: 20%;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .addtocart-card img {
+            width: 50%;
+            max-height: 100px;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+        
+        .addtocart-card h3 {
+            margin: 10px 0 5px;
+            font-size: 18px;
+        }
+        
+        .addtocart-card p {
+            font-size: 16px;
+            color: #555;
+        }
+        
+        .product-card img {
+            width: 70%;
+            max-height: 150px;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+        
+        .product-card h3 {
+            margin: 10px 0 5px;
+            font-size: 18px;
+        }
+        
+        .product-card p {
+            font-size: 16px;
+            color: #555;
+        }
+        
+        button {
+            background-color: rgb(18, 17, 17);
+            border: none;
+            padding: 5px 10px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: rgb(229, 9, 20);
+        }
+        
+        #cartContainer {
+            margin-top: 20px;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 5px;
+            align-items: center;
+            margin: 5px 0;
+        }
+        
+        #feedback {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: white;
+            padding: 10px;
+            display: none;
+            color: white;
+        }
+        
+        #totalPrice {
+            text-align: right;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .product-card {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <span class="nletter">N</span><span class="oletter">o</span
+        ><span class="trustletter">trust</span>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for products..." />
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">Deals</a></li>
+
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="icons">
+            <a href="login.html">
+                <i class="fa-solid fa-user" style="color: #e50914;"></i>
+            </a>
+
+            <a href="mycart.html"><i class="fa-solid fa-cart-shopping" style="color: #e50914"></i
+        ></a>
+        </div>
+    </nav>
+    <!-- hero section start -->
+    <div class="hero-section"></div>
+    <!-- hero section start -->
+    <div class="online-shopping-container">
+        <h1 class="websitetitle">
+            <span class="moving-title">Best Deals ONline!</span>
+            <span class="moving-title">Shop-more, Save-More!</span>
+            <span class="moving-title">Exclusive Discounts Inside!</span>
+            <span class="moving-title">Your One-Stop Shopping Destination!</span>
+        </h1>
+
+        <p id="feedback"></p>
+        <br>
+        <h2 class="avlproducts">Available Products:</h2>
+        <br>
+        <div id="productsContainer" class="product-grid"></div>
+        <div class="sales"></div>
+        <h2 class="mycarttitle">My Cart:</h2>
+        <div id="cartContainer" class="cart-grid"></div>
+        <div class="total-price-container">
+            <h2 id="totalPrice" class="amounttable">Total: Rs.0</h2>
+            <div class="buttons-container">
+                <button id="sortByPrice" class="sortbyprice">Sort by Price</button>
+                <button id="clearCart" class="clearrt">Clear cart</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2025 Do-Shopping. All rights reserved :: </p>
+            <p><span>Thank You For Visiting Our ONline Shopping Website!</span></p>
+            <p class="saicharan">No-trust developed by<span class="highlight">SaiCharan </span></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+
+
+<!-- .foot-panel3 {
+    background-color: #222f3d;
+    color: white;
+    border-top: 0.5px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ .foot-logo {
+    background-image: url("amazon_logo.png");
+    background-size: cover;
+    height: 50px;
+    width: 100px;
+}
+
+.foot-panel4 {
+    background-color: #0f1111;
+    color: white;
+    height: 80px;
+    font-size: 0.7rem;
+    text-align: center;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.pages {
+    padding-top: 20px;
+}
+
+.copy-right {
+    padding-top: 5px;
+}  -->
+
+
+<!-- <div class="foot-panel3">
+    <div class="foot-logo">
+
+    </div>
+</div>
+<div class="foot-panel4">
+    <div class="pages">
+        <a>Conditions of Use</a>
+        <a>Privacy Notice</a>
+        <a>Your Ads Privacy Choices</a>
+    </div>
+    <div class="copy-right">
+        © 1996-2025, Amazon.com, Inc. or its affiliates
+    </div>
+
+</div>
+</footer> -->

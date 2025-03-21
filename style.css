@@ -1,0 +1,361 @@
+/* nav bar sytyles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    width: 100%;
+    margin: 0;
+}
+
+.nletter {
+    font-weight: 600;
+    color: rgb(229, 9, 20);
+    font-size: 35px;
+    box-shadow: 0 0 25px rgb(229, 8, 20);
+}
+
+.oletter {
+    color: rgb(229, 9, 20);
+    font-size: 35px;
+    font-stretch: extra-expanded;
+    font-style: itali;
+    box-shadow: 0 0 25px rgb(154, 133, 133);
+    border-left: 0.5px solid white;
+}
+
+.trustletter {
+    color: rgb(235, 230, 230);
+    font-size: 25px;
+    position: relative;
+    top: 4px;
+    left: 2px;
+    box-shadow: 0 0 25px white;
+}
+
+body {
+    background-color: #e2e7e6;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #222;
+    color: white;
+}
+
+.logo {
+    font-size: 35px;
+    font-weight: bold;
+    color: red;
+    border: 2px sold red;
+    box-shadow: (0 0 25 red);
+}
+
+.search-bar {
+    display: flex;
+    width: 40%;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    outline: none;
+}
+
+.search-bar button {
+    padding: 10px;
+    background-color: rgb(229, 9, 20);
+    border: 0;
+    cursor: pointer;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.icons a {
+    color: white;
+    margin-left: 15px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.icons a:hover,
+.nav-links a:hover {
+    color: #febd69;
+}
+
+@media (max-width: 768px) {
+    .search-bar {
+        width: 60%;
+    }
+    .nav-links {
+        display: none;
+    }
+}
+
+
+/*nav bar styles end*/
+
+.hero-section {
+    background-image: url("images/hero-image.jpg");
+    height: 300px;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.sales {
+    background-image: url("images/sale5.jpg");
+    height: 100px;
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    box-shadow: 0 0 15px red;
+}
+
+.websitetitle {
+    margin: 0;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(229, 9, 20);
+    text-align: center;
+    height: 30px;
+    /* Ensure a fixed height for smooth transitions */
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 25px rgb(10, 10, 10);
+    background-color: rgb(10, 10, 10);
+}
+
+.moving-title {
+    display: block;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    animation: slideText 8s infinite;
+    opacity: 0;
+}
+
+.moving-title:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.moving-title:nth-child(2) {
+    animation-delay: 2s;
+}
+
+.moving-title:nth-child(3) {
+    animation-delay: 4s;
+}
+
+.moving-title:nth-child(4) {
+    animation-delay: 6s;
+}
+
+@keyframes slideText {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    25% {
+        opacity: 1;
+    }
+    35% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+h2 {
+    color: rgb(36, 34, 34);
+}
+
+.mycarttitle {
+    display: inline-block;
+    color: black;
+    margin-top: 40px;
+    /* text-decoration: underline; */
+    /* font-weight: 600; */
+    text-shadow: 0 0 50px black;
+    /* background-color: black; */
+    /* border: 2px solid #f10404 transparent; */
+}
+
+.total-price-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px;
+    border-top: 2px solid #ccc;
+}
+
+.amounttable {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(229, 9, 20);
+}
+
+.buttons-container {
+    display: flex;
+    gap: 10px;
+    /* Adds spacing between buttons */
+}
+
+#sortByPrice,
+#clearCart {
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(229, 9, 20);
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+#sortByPrice:hover,
+#clearCart:hover {
+    background-color: rgb(200, 0, 15);
+}
+
+.footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding-bottom: 10px;
+    font-size: 14px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: auto;
+    justify-content: center;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+.highlight {
+    color: #e50914;
+    font-weight: bold;
+    font-size: medium;
+}
+
+p.saicharan {
+    float: inline-end;
+}
+
+
+/*amazon footer */
+
+
+/* 
+.foot-panel3 {
+    background-color: #222f3d;
+    color: white;
+    border-top: 0.5px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.foot-logo {
+    /* background-image: url("amazon_logo.png"); */
+
+
+/* .nletter {
+        font-weight: 600;
+        color: rgb(229, 9, 20);
+        font-size: 35px;
+    }
+    .oletter {
+        color: rgb(229, 9, 20);
+        font-size: 40px;
+        font-stretch: ultra-condensed;
+        font-style: italic;
+    }
+    .trustletter {
+        color: rgb(235, 230, 230);
+        font-size: 25px;
+        position: relative;
+        top: 4px;
+        left: 2px;
+    }
+}
+
+.foot-logo {
+    height: 50px;
+    width: 100px;
+}
+
+.foot-panel4 {
+    background-color: #0f1111;
+    color: white;
+    height: 80px;
+    font-size: 0.7rem;
+    text-align: center; */
+
+
+/* display: flex;
+    justify-content: center;
+    align-items: center; */
+
+
+/*amazon footer End */
+
+.pages {
+    padding-top: 20px;
+}
+
+.avlproducts {
+    font-weight: 700;
+}
+
+.copy-right {
+    padding-top: 5px;
+}
+
+#price-color {
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 2px;
+    background-color: black;
+    color: white;
+}
